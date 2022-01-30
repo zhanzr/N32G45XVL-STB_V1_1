@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Source\simple_delay;.\Source\led</IncludePath>
+              <IncludePath>.\Source\simple_delay;.\Source\led;.\Source\usart;.\Source\retarget</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -426,7 +426,30 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>usart</GroupName>
+          <Files>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\usart\usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>retarget</GroupName>
+          <Files>
+            <File>
+              <FileName>retarget_impl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\retarget\retarget_impl.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::Compiler</GroupName>
         </Group>
         <Group>
           <GroupName>::Device</GroupName>
@@ -440,6 +463,12 @@
     <components>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.5.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDOUT" Cvariant="User" Cvendor="Keil" Cversion="1.2.0" condition="ARMCC Cortex-M">
+        <package name="ARM_Compiler" schemaVersion="1.6.3" url="http://www.keil.com/pack/" vendor="Keil" version="1.6.3"/>
         <targetInfos>
           <targetInfo name="N32G457VEL_STB_V1_1"/>
         </targetInfos>
@@ -463,6 +492,12 @@
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x STDPERIPH">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="USART" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x STDPERIPH RCC">
         <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
         <targetInfos>
           <targetInfo name="N32G457VEL_STB_V1_1"/>
