@@ -7,6 +7,8 @@
 #include "simple_delay.h"
 #include "usart.h"
 
+volatile uint32_t g_ticks;
+
 #ifdef USE_FULL_ASSERT
 void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
   while (1) {
@@ -18,6 +20,13 @@ void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
  * @brief  Main program.
  */
 int main(void) {
+  /* Setup SysTick Timer for 1 msec interrupts  */
+  if (SysTick_Config(SystemCoreClock / 1000)) {
+    /* Capture error */
+    while (1)
+      ;
+  }
+
   LedInit();
 
   User_Usart_Init();
@@ -28,7 +37,7 @@ int main(void) {
 
   while (1) {
     Led3Toogle();
-    printf("Freq %u\n\r", SystemCoreClock);
+    printf("Freq %u ticks:%u\n\r", SystemCoreClock, g_ticks);
 
     simple_delay_ms(300);
   }

@@ -40,7 +40,7 @@
  * @{
  */
 
-extern __IO uint32_t CurrDataCounterEnd;
+extern volatile uint32_t g_ticks;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
@@ -100,7 +100,7 @@ void DebugMon_Handler(void) {}
 /**
  * @brief  This function handles SysTick Handler.
  */
-void SysTick_Handler(void) {}
+void SysTick_Handler(void) { g_ticks++; }
 
 /**
  * @brief  This function handles DMA interrupt request defined in main.h .
