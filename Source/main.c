@@ -7,6 +7,8 @@
 #include "simple_delay.h"
 #include "usart.h"
 
+#include "core_portme.h"
+
 #ifdef USE_FULL_ASSERT
 void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
   while (1) {
@@ -14,22 +16,26 @@ void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
 }
 #endif // USE_FULL_ASSERT
 
+volatile uint32_t g_ticks;
+
 /**
  * @brief  Main program.
  */
-int main(void) {
+int main_init(void) {
+	/* Setup SysTick Timer for 1 msec interrupts  */
+	if (SysTick_Config(SystemCoreClock / __CLK_TCK)) {
+		 /* Capture error */
+		 while (1);
+	}
+	
   LedInit();
 
   User_Usart_Init();
 
-  /* Output a message on Hyperterminal using printf function */
-  printf("\n\rUSART Printf Example: retarget the C library printf function to "
-         "the USART\n\r");
+//  while (1) {
+//    Led3Toogle();
+//    printf("Freq %u, ticks:%u\n\r", SystemCoreClock, g_ticks);
 
-  while (1) {
-    Led3Toogle();
-    printf("Freq %u\n\r", SystemCoreClock);
-
-    simple_delay_ms(300);
-  }
+//    simple_delay_ms(300);
+//  }
 }
