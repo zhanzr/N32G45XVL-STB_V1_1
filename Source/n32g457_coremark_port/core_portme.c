@@ -13,7 +13,7 @@
 extern int main_init(void);
 extern volatile uint32_t g_ticks;
 
-static uint32_t HAL_GetTick(void) {
+static inline uint32_t HAL_GetTick(void) {
 	return g_ticks;
 }
 
@@ -132,7 +132,10 @@ void portable_fini(core_portable *p)
 	ee_printf("End of Bechmark.\n");
   while (1) {
     Led3Toogle();
-    simple_delay_ms(20000);
+		uint32_t start_tick = HAL_GetTick();
+		while((start_tick+20000) > HAL_GetTick()) {
+			__WFI();
+		}
     printf("Freq %u, ticks:%u\n\r", SystemCoreClock, g_ticks);
   }
 }

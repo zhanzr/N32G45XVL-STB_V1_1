@@ -134,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -196,7 +196,7 @@
             <RoSelD>3</RoSelD>
             <RwSelD>3</RwSelD>
             <CodeSel>0</CodeSel>
-            <OptFeed>0</OptFeed>
+            <OptFeed>1</OptFeed>
             <NoZi1>0</NoZi1>
             <NoZi2>0</NoZi2>
             <NoZi3>0</NoZi3>
@@ -332,7 +332,7 @@
             <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
-            <v6Lto>0</v6Lto>
+            <v6Lto>1</v6Lto>
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
@@ -514,6 +514,12 @@
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x CMSIS Device">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="FLASH" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x STDPERIPH RCC">
         <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
         <targetInfos>
           <targetInfo name="N32G457VEL_STB_V1_1"/>

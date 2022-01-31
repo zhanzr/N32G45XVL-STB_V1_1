@@ -19,6 +19,8 @@
 /* Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0 */
 #define RTE_Compiler_IO_STDOUT          /* Compiler I/O: STDOUT */
           #define RTE_Compiler_IO_STDOUT_User     /* Compiler I/O: STDOUT User */
+/* Nationstech::Device:StdPeriph Drivers:FLASH:1.0.0 */
+#define RTE_DEVICE_STDPERIPH_FLASH
 /* Nationstech::Device:StdPeriph Drivers:Framework:1.0.0 */
 #define RTE_DEVICE_STDPERIPH_FRAMEWORK
 /* Nationstech::Device:StdPeriph Drivers:GPIO:1.0.0 */
