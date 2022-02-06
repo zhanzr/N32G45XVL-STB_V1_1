@@ -10,8 +10,36 @@
 #include "coremark.h"
 #include "core_portme.h"
 
-extern int main_init(void);
+extern void main_init(void);
 extern volatile uint32_t g_ticks;
+
+/**
+ * @brief  SysTick Init.
+ * @param  NUM   Interrupt Time(us)
+ */
+void SysTick_Init(uint32_t NUM)
+{
+    /* SystemCoreClock / NUM */
+    if (SysTick_Config(SystemCoreClock / NUM))
+    {
+        while (1)
+            ;
+    }
+}
+
+/**
+ * @brief  SysTick_Stop_time.
+ */
+void SysTick_Stop_time(void)
+{
+    SysTick->CTRL &= SYSTICK_COUNTER_DIASBLE;
+    /* Clear the SysTick Counter */
+    SysTick->VAL = SYSTICK_COUNTER_CLEAR;
+}
+
+static inline void HAL_ClearTick(void) {
+	g_ticks = 0;
+}
 
 static inline uint32_t HAL_GetTick(void) {
 	return g_ticks;
@@ -65,7 +93,10 @@ static CORETIMETYPE start_time_val, stop_time_val;
 void start_time(void) {	
 //	HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
 	
-	GETMYTIME(&start_time_val );      
+//	GETMYTIME(&start_time_val );      
+	
+	HAL_ClearTick();
+	SysTick_Init(SYSTICK_1MS);
 }
 /* Function : stop_time
 	This function will be called right after ending the timed portion of the benchmark.
@@ -76,7 +107,8 @@ void start_time(void) {
 void stop_time(void) {
 //	HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
 	
-	GETMYTIME(&stop_time_val );      
+//	GETMYTIME(&stop_time_val ); 
+    SysTick_Stop_time();	
 }
 /* Function : get_time
 	Return an abstract "ticks" number that signifies time on the system.
@@ -88,7 +120,9 @@ void stop_time(void) {
 	and the resolution is controlled by <TIMER_RES_DIVIDER>
 */
 CORE_TICKS get_time(void) {
-	CORE_TICKS elapsed=(CORE_TICKS)(MYTIMEDIFF(stop_time_val, start_time_val));
+//	CORE_TICKS elapsed=(CORE_TICKS)(MYTIMEDIFF(stop_time_val, start_time_val));
+	
+	CORE_TICKS elapsed = (CORE_TICKS)HAL_GetTick();
 	return elapsed;
 }
 /* Function : time_in_secs

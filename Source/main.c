@@ -19,37 +19,14 @@ void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
 volatile uint32_t g_ticks;
 
 /**
- * @brief  SysTick Init.
- * @param  NUM   Interrupt Time(us)
- */
-void SysTick_Init(uint32_t NUM)
-{
-    /* SystemCoreClock / NUM */
-    if (SysTick_Config(SystemCoreClock / NUM))
-    {
-        while (1)
-            ;
-    }
-}
-
-/**
- * @brief  SysTick_Stop_time.
- */
-void SysTick_Stop_time(void)
-{
-    SysTick->CTRL &= SYSTICK_COUNTER_DIASBLE;
-    /* Clear the SysTick Counter */
-    SysTick->VAL = SYSTICK_COUNTER_CLEAR;
-}
-
-/**
  * @brief  Main program.
  */
-int main_init(void) {
-    /* Enable iCache */
+void main_init(void) {
+    /* Switch iCache , it is default Enabled*/
 //    FLASH_iCacheCmd(FLASH_iCache_EN);
+//    FLASH_iCacheCmd(FLASH_iCache_DIS);
 	
-	SysTick_Init(SYSTICK_1MS);
+//	SysTick_Init(SYSTICK_1MS);
 
   LedInit();
 

@@ -1,5 +1,11 @@
 # N32G457VEL STB V1.1 Demo Project Template
 
+    /* Switch iCache , it is default Enabled*/
+//    FLASH_iCacheCmd(FLASH_iCache_EN);
+//    FLASH_iCacheCmd(FLASH_iCache_DIS);
+
+Enable:
+
 CoreMark For N32G457 @ 144 MHz
 2K performance run parameters for coremark.
 CoreMark Size    : 666
@@ -19,3 +25,5 @@ Correct operation validated. See README.md for run and reporting rules.
 CoreMark 1.0 : 319.539863 / GCCClang 13.0.0 (ssh://ds-gerrit/armcompiler/llvm-project 1f5770d6f72ee4eba2159092bbf4cbb819be323a) -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -gdwarf-4 -Ofast / STACK
 End of Bechmark.
 
+Disable:
+about 213
