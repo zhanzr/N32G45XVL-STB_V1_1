@@ -19,6 +19,16 @@
 /* Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0 */
 #define RTE_Compiler_IO_STDOUT          /* Compiler I/O: STDOUT */
           #define RTE_Compiler_IO_STDOUT_User     /* Compiler I/O: STDOUT User */
+/* Nationstech::Device:Algorithm Libs:AES:1.0.0 */
+#define RTE_DEVICE_ALGO_AES
+/* Nationstech::Device:Algorithm Libs:Common:1.0.0 */
+#define RTE_DEVICE_ALGO_COMMON
+/* Nationstech::Device:Algorithm Libs:DES:1.0.0 */
+#define RTE_DEVICE_ALGO_DES
+/* Nationstech::Device:Algorithm Libs:HASH:1.0.0 */
+#define RTE_DEVICE_ALGO_HASH
+/* Nationstech::Device:Algorithm Libs:RNG:1.0.0 */
+#define RTE_DEVICE_ALGO_RNG
 /* Nationstech::Device:StdPeriph Drivers:FLASH:1.0.0 */
 #define RTE_DEVICE_STDPERIPH_FLASH
 /* Nationstech::Device:StdPeriph Drivers:Framework:1.0.0 */

@@ -446,46 +446,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>coremark</GroupName>
-          <Files>
-            <File>
-              <FileName>core_list_join.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>D:\c_prj\coremark\core_list_join.c</FilePath>
-            </File>
-            <File>
-              <FileName>core_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>D:\c_prj\coremark\core_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>core_matrix.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>D:\c_prj\coremark\core_matrix.c</FilePath>
-            </File>
-            <File>
-              <FileName>core_state.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>D:\c_prj\coremark\core_state.c</FilePath>
-            </File>
-            <File>
-              <FileName>core_util.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>D:\c_prj\coremark\core_util.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>n32g457_port</GroupName>
-          <Files>
-            <File>
-              <FileName>core_portme.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\n32g457_coremark_port\core_portme.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
@@ -509,6 +469,36 @@
       </component>
       <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDOUT" Cvariant="User" Cvendor="Keil" Cversion="1.2.0" condition="ARMCC Cortex-M">
         <package name="ARM_Compiler" schemaVersion="1.6.3" url="http://www.keil.com/pack/" vendor="Keil" version="1.6.3"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Algorithm Libs" Csub="AES" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x Algorithm Common">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Algorithm Libs" Csub="Common" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x CMSIS Device">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Algorithm Libs" Csub="DES" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x Algorithm Common">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Algorithm Libs" Csub="HASH" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x Algorithm Common">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
+        <targetInfos>
+          <targetInfo name="N32G457VEL_STB_V1_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Algorithm Libs" Csub="RNG" Cvendor="Nationstech" Cversion="1.0.0" condition="N32G45x Algorithm Common">
+        <package name="N32G45x_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Nationstech" version="1.0.4"/>
         <targetInfos>
           <targetInfo name="N32G457VEL_STB_V1_1"/>
         </targetInfos>
