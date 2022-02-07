@@ -69,7 +69,7 @@ int main(void) {
   // Software Engine
   TestRand_Soft();
 
-  TestMD5_Soft((uint8_t *)HASH_TEST_MSG, strlen(HASH_TEST_MSG));
+  TestMD5_Soft();
   TestSHA1_Soft((uint8_t *)HASH_TEST_MSG, strlen(HASH_TEST_MSG));
   TestSHA224_Soft((uint8_t *)HASH_TEST_MSG, strlen(HASH_TEST_MSG));
   TestSHA256_Soft((uint8_t *)HASH_TEST_MSG, strlen(HASH_TEST_MSG));
@@ -81,6 +81,6 @@ int main(void) {
     Led3Toogle();
     printf("Freq %u, ticks:%u\n\r", SystemCoreClock, g_ticks);
 
-    simple_delay_ms(2000);
+    simple_delay_ms(20000);
   }
 }

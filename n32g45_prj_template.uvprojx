@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Source\simple_delay;.\Source\led;.\Source\usart;.\Source\retarget;.\Source\hard_algo;.\Source\soft_algo</IncludePath>
+              <IncludePath>.\Source\simple_delay;.\Source\led;.\Source\usart;.\Source\retarget;.\Source\hard_algo;.\Source\soft_algo;.\Source\soft_algo\md5</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -452,6 +452,21 @@
               <FileName>soft_algo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\soft_algo\soft_algo.c</FilePath>
+            </File>
+            <File>
+              <FileName>des.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\soft_algo\des\des.c</FilePath>
+            </File>
+            <File>
+              <FileName>md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\soft_algo\md5\md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>test_soft_md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\soft_algo\md5\test_soft_md5.c</FilePath>
             </File>
           </Files>
         </Group>

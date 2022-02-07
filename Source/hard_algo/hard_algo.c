@@ -1,5 +1,8 @@
 #include "hard_algo.h"
 
+extern void print_bytes(void *p, size_t length);
+extern void print_hash(uint8_t *p);
+
 /**
  * @brief  Example for how to get a randon number by ALGO lib
  */
@@ -75,17 +78,34 @@ void TestSHA1_Hard(uint8_t *buf, uint32_t len) {
   log_info("\n");
 }
 
+void md5Binary_hard(uint8_t *buf, uint32_t len, uint8_t* result) {
+  CalcHASH_Hard(HASH_ALG_MD5, buf, len, result);
+}
+
+void md5String_hard(uint8_t *buf, uint8_t* result) {
+	md5Binary_hard(buf, strlen((char*)buf), result);
+}
+
+int test_hard_md5(char* input){
+	uint8_t result[16];
+
+	md5String_hard((uint8_t*)input, result);
+	print_hash(result);
+}
+
 /**
  * @brief  Show how to calculate MD5 value by ALGO lib for a message
  */
 void TestMD5_Hard(uint8_t *buf, uint32_t len) {
-  uint8_t result[16];
-
-  log_info("\n");
-  CalcHASH_Hard(HASH_ALG_MD5, buf, len, result);
-  log_info("MD5 of message `%s` is: ", buf);
-  DumpBytes(result, 16);
-  log_info("\n");
+	printf("%s start\r\n\r\n", __func__);
+	test_hard_md5("");
+	test_hard_md5("a");
+	test_hard_md5("abc");
+	test_hard_md5("message digest");
+	test_hard_md5("abcdefghijklmnopqrstuvwxyz");
+	test_hard_md5("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+	test_hard_md5("12345678901234567890123456789012345678901234567890123456789012345678901234567890");
+	printf("%s endof \r\n\r\n", __func__);
 }
 
 /**
