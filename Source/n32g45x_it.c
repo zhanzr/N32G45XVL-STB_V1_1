@@ -42,7 +42,7 @@
 
 extern __IO uint32_t CurrDataCounterEnd;
 
-volatile uint32_t g_ticks;
+extern volatile uint32_t g_ticks;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */

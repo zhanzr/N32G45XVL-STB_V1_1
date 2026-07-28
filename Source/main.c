@@ -7,48 +7,71 @@
 #include "simple_delay.h"
 #include "usart.h"
 
-extern volatile uint32_t g_ticks;
+#include "custom_def.h"
+#include "dhry.h"
 
-#ifdef USE_FULL_ASSERT
-void assert_failed(const uint8_t *expr, const uint8_t *file, uint32_t line) {
-  while (1) {
-  }
-}
-#endif // USE_FULL_ASSERT
-
-
-/* retarget the C library printf function to the USART */
-int fputc(int ch, FILE* f)
-{
-    USART_SendData(USART1, (uint8_t)ch);
-    while (USART_GetFlagStatus(USART1, USART_FLAG_TXDE) == RESET)
-        ;
-
-    return (ch);
-}
-
+extern void Proc_5 (void);
 
 /**
  * @brief  Main program.
  */
 int main(void) {
-  SysTick_Config(SystemCoreClock / 1000);
+  SysTick_Config(SystemCoreClock / configTICK_RATE_HZ);
 	
   LedInit();
 
-  User_Usart_Init();
+  User_Usart_Init(SERIAL_BAUDRATE);
 
   /* Output a message on Hyperterminal using printf function */
   printf("N32G457 Test \r");
-
+	printf("CC: %s\n", COMPILER_NAME);		
+	printf("%u Hz, %08X, CM:%d, FPU_USED:%d\n",
+			SystemCoreClock, SCB->CPUID,
+			__CORTEX_M, __FPU_USED);
+	printf("vector: %08X %08X\n", (uint32_t)(&dhry_main), (uint32_t)(&Proc_5));
+	
   while (1) {
+		printf("\n");
+		printf("Flash cached enable\n");
+		FLASH_iCacheCmd(FLASH_iCache_EN);		
+		dhry_main(SystemCoreClock);
+		
     Led1Toogle();
-    printf("Freq %u %u\r", SystemCoreClock, g_ticks);
-
-    simple_delay_ms(1000);
+    HAL_Delay(3000);
     Led2Toogle();
-    simple_delay_ms(1000);
+    HAL_Delay(3000);
     Led3Toogle();
-    simple_delay_ms(1000);
+    HAL_Delay(3000);
+		
+		printf("CC: %s\n", COMPILER_NAME);		
+		printf("%u Hz, %08X, CM:%d, FPU_USED:%d\n",
+				SystemCoreClock, SCB->CPUID,
+				__CORTEX_M, __FPU_USED);
+		printf("vector: %08X %08X\n", (uint32_t)(&dhry_main), (uint32_t)(&Proc_5));
+		printf("Flash cached test completed\n");
+
+    HAL_Delay(3 * 1000);
+		
+		printf("\n");
+		printf("Flash cached disable\n");
+		FLASH_iCacheCmd(FLASH_iCache_DIS);
+		dhry_main(SystemCoreClock);
+		
+    Led1Toogle();
+    HAL_Delay(3000);
+    Led2Toogle();
+    HAL_Delay(3000);
+    Led3Toogle();
+    HAL_Delay(3000);
+		
+		printf("CC: %s\n", COMPILER_NAME);		
+		printf("%u Hz, %08X, CM:%d, FPU_USED:%d\n",
+				SystemCoreClock, SCB->CPUID,
+				__CORTEX_M, __FPU_USED);
+		printf("vector: %08X %08X\n", (uint32_t)(&dhry_main), (uint32_t)(&Proc_5));
+		printf("Flash uncached test completed\n");
+				
+		
+    HAL_Delay(3 * 1000);
   }
 }

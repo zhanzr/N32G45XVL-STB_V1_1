@@ -1,6 +1,6 @@
 #include "usart.h"
 
-void User_Usart_Init(void) {
+void User_Usart_Init(uint32_t baud) {
   /* Enable GPIO clock */
   GPIO_APBxClkCmd(RCC_APB2_PERIPH_GPIOA | RCC_APB2_PERIPH_AFIO, ENABLE);
   /* Enable USARTy and USARTz Clock */
@@ -23,7 +23,7 @@ void User_Usart_Init(void) {
    * ------------------------------------------------------*/
   USART_InitType USART_InitStructure;
 
-  USART_InitStructure.BaudRate = TEST_BAUDRATE;
+  USART_InitStructure.BaudRate = baud;
   USART_InitStructure.WordLength = USART_WL_8B;
   USART_InitStructure.StopBits = USART_STPB_1;
   USART_InitStructure.Parity = USART_PE_NO;

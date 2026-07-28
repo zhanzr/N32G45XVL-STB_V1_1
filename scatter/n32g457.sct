@@ -15,14 +15,14 @@
 ;   <o5> no init size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
  *----------------------------------------------------------------------------*/
-#define __STACK_SIZE				0x00001000
-#define __HEAP_SIZE					0x00000400
+#define __STACK_SIZE				0x00002000
+#define __HEAP_SIZE					0x00001000
 #define	__GAP_INIT					0
 #define __GAP_HEAP_TOP_STACK_BASE	0
 #define __GAP_STACK_TOP_RW_BASE		0
 
 #define __FLASH_BASE     			0x8000000
-#define __FLASH_SIZE     			0x200000
+#define __FLASH_SIZE     			0x80000
 
 #define __SRAM_BASE   0x20000000
 #define __SRAM_SIZE   0x20000
