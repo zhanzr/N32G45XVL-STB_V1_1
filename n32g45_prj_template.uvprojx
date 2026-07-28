@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Source\simple_delay;.\Source\led;.\Source\usart;.\Source\retarget;.\Driver\CMSIS\core;.\Driver\CMSIS\device;.\Driver\CMSIS\device\startup;.\Driver\n32g45x_std_periph_driver\inc</IncludePath>
+              <IncludePath>.\Source\simple_delay;.\Source\led;.\Source\usart;.\Source\retarget;.\Driver\CMSIS\core;.\Driver\CMSIS\device;.\Driver\CMSIS\device\startup;.\Driver\n32g45x_std_periph_driver\inc;.\Source\coremark_1_0_1;.\Source\coremark_1_0_1\n32g45;.\Source</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -396,19 +396,39 @@
               <FilePath>.\Source\n32g45x_it.c</FilePath>
             </File>
             <File>
-              <FileName>dhry_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\dhry_1.c</FilePath>
-            </File>
-            <File>
-              <FileName>dhry_2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\dhry_2.c</FilePath>
-            </File>
-            <File>
               <FileName>utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\utils.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_list_join.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\core_list_join.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\core_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_matrix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\core_matrix.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_state.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\core_state.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\core_util.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_portme.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\coremark_1_0_1\n32g45\core_portme.c</FilePath>
             </File>
           </Files>
         </Group>
